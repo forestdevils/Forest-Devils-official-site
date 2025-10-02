@@ -1,33 +1,159 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background-color: #2c3e50;
+body {
+    background-color: #4a0d0d;
     color: white;
-    padding: 20px;
+}
+
+/* HEADER */
+header {
+    background-color: #1a1a1a;
+    padding: 5px 0;
+}
+
+header .logo a {
+    text-decoration: none; /* прибрати підкреслення */
+    color: inherit; /* щоб колір тексту не змінювався */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* відстань між логотипом і текстом */
+}
+
+.header-container {
+    display: flex;           /* робимо горизонтальний ряд */
+    justify-content: space-between; /* логотип зліва, меню справа */
+    align-items: center;     /* вертикальне вирівнювання по центру */
+    padding: 10px 20px;      /* внутрішні відступи */
+    width: 90%;
+    margin: 0 auto;
+}
+
+header .logo img {
+    height: 50px;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
-main {
+header nav ul li a.active {
+    text-decoration: underline;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 50px 0;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.hero-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    flex: 1;
+    border-radius: 5px;
+}
+
+.card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.card.empty {
+    background: transparent;
+}
+
+/* QUICK LINKS */
+.quick-links {
+    padding: 50px 0;
+}
+
+.quick-links .container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.link-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    flex: 1;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;  /* прибрати підкреслення */
+    color: inherit;         /* залишити білий текст */
+    display: block;         /* щоб поводилося як div */
+    transition: background-color 0.3s;
+}
+
+.link-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.link-card:hover {
+    background-color: #333; /* ефект при наведенні */
+}
+
+
+/* Секція з кнопкою перед футером */
+.party-link-section {
+    text-align: center; /* кнопка по центру */
+    padding: 20px 0;
+    background-color: #4a0d0d; /* той самий фон, що і футер */
+}
+
+.party-button {
+    background-color: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.party-button:hover {
+    background-color: #6a1a1a;
+}
+
+/* FOOTER */
+footer {
+    background-color: #1a1a1a;
+    text-align: left; /* текст ліворуч */
     padding: 20px;
 }
 
-footer {
-    background-color: #2c3e50;
+footer a {
     color: white;
-    text-align: center;
-    padding: 10px;
+    text-decoration: none;
 }
