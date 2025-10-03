@@ -32,5 +32,28 @@
     </div>
 </header>
 
+<main>
+    <!-- NEWS SECTION -->
+    <section class="news-section">
+        <div class="container">
+            <h1>Новини Лісу</h1>
+            <section class="news-list">
+            </section>
+
+            <div id="newsModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalNewsImage">
+                <p id="modalNewsText"></p>
+                <button id="prevBtn" onclick="showPrev()">&lt;</button>
+                <button id="nextBtn" onclick="showNext()">&gt;</button>
+            </div>
+
+
+        </div>
+    </section>
+</main>
+
+
+<script src="../js/news.js"></script>
 </body>
 </html>

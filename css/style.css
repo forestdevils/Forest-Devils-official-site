@@ -21,6 +21,8 @@ main {
     flex: 1; /* займе весь простір між header та footer */
 }
 
+
+
 /* HEADER */
 header {
     background-color: #1a1a1a;
@@ -63,6 +65,8 @@ header nav ul li a {
 header nav ul li a.active {
     text-decoration: underline;
 }
+
+
 
 /* HERO SECTION */
 .hero {
@@ -125,6 +129,8 @@ header nav ul li a.active {
     background: transparent;
 }
 
+
+
 /* QUICK LINKS */
 .quick-links {
     padding: 50px 0;
@@ -160,6 +166,7 @@ header nav ul li a.active {
 }
 
 
+
 /* Секція з кнопкою перед футером */
 .party-link-section {
     text-align: center; /* кнопка по центру */
@@ -179,6 +186,9 @@ header nav ul li a.active {
 .party-button:hover {
     background-color: #6a1a1a;
 }
+
+
+
 
 /* FOOTER */
 footer {
@@ -245,6 +255,7 @@ footer a {
         padding: 15px 0;
     }
 }
+
 
 
 /* decrees */
@@ -326,4 +337,74 @@ footer a {
     .decree-card {
         width: 90%;
     }
+}
+
+
+/* news */
+
+.news-section {
+    padding: 50px 0;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.news-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.news-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.news-card:hover {
+    background-color: #333;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Модальні кнопки навігації */
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%; /* по вертикалі по центру */
+    transform: translateY(-50%);
+    /*background-color: rgba(0,0,0,0.5); !* напівпрозорий чорний фон *!*/
+    background-color: #4a0d0d;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* збільшуємо розмір кнопки */
+    font-size: 2rem; /* великий знак < або > */
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    /*background-color: rgba(0,0,0,0.8);*/
+    background-color: #972f2f;
+}
+
+#prevBtn {
+    left: 10px; /* зліва */
+}
+
+#nextBtn {
+    right: 10px; /* справа */
 }
