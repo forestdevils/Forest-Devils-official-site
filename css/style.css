@@ -157,3 +157,51 @@ footer a {
     color: white;
     text-decoration: none;
 }
+
+/* --- Адаптивність --- */
+@media (max-width: 768px) {
+    /* Хедер */
+    .header-container {
+        flex-direction: column; /* логотип зверху, меню знизу */
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column; /* робимо вертикальне меню */
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    /* Hero */
+    .hero-content {
+        flex-direction: column; /* текст над картками */
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-cards {
+        flex-direction: column; /* картки одна під одною */
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Quick links */
+    .quick-links .container {
+        flex-direction: column; /* картки одна під одною */
+        align-items: center;
+    }
+
+    .link-card {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    /* Кнопка */
+    .party-link-section {
+        padding: 15px 0;
+    }
+}
