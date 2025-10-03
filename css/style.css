@@ -5,9 +5,19 @@
     font-family: Arial, sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #4a0d0d;
     color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* займе весь простір між header та footer */
 }
 
 /* HEADER */
@@ -56,30 +66,53 @@ header nav ul li a.active {
 /* HERO SECTION */
 .hero {
     padding: 50px 0;
+    background-color: #4a0d0d; /* #5a0d0d; */
 }
 
 .hero-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 колонки: текст + картки */
+    align-items: stretch;
+    gap: 40px;
     width: 90%;
     margin: 0 auto;
 }
 
+.hero-text {
+    display: flex;
+    flex-direction: column; /* тепер елементи йдуть зверху вниз */
+    justify-content: center; /* центрує весь блок по вертикалі */
+    align-items: flex-start; /* вирівнює по лівому краю */
+}
+
 .hero-text h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;  /* трішки менший підзаголовок */
+    color: #ddd;        /* світліший відтінок, щоб не зливалося */
 }
 
 .hero-cards {
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 1fr; !* дві картки в ряд *!*/
+    /*gap: 20px;*/
+
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
 .card {
     background-color: #1a1a1a;
     padding: 20px;
-    flex: 1;
-    border-radius: 5px;
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
 }
 
 .card i {
@@ -174,19 +207,25 @@ footer a {
 
     /* Hero */
     .hero-content {
-        flex-direction: column; /* текст над картками */
-        align-items: center;
+        grid-template-columns: 1fr; /* все в одну колонку */
         text-align: center;
     }
 
     .hero-cards {
-        flex-direction: column; /* картки одна під одною */
-        width: 100%;
+        /*grid-template-columns: 1fr; !* картки одна під одною *!*/
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text {
+        align-items: center; /* на телефоні все по центру */
+        text-align: center;
     }
 
     .card {
         width: 90%;
-        margin: 0 auto;
+        /*margin: 0 auto;*/
+        margin-bottom: 15px;
     }
 
     /* Quick links */
