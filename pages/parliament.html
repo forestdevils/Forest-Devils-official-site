@@ -32,5 +32,41 @@
     </div>
 </header>
 
+<main>
+    <!-- ACTUAL PARLIAMENT -->
+    <section class="parliament-current">
+        <div class="container">
+            <h1>Актуальний парламент</h1>
+            <img src="../images/parliament/current_parliament.jpg" alt="Актуальний парламент" class="current-parliament-img">
+        </div>
+    </section>
+
+    <!-- PREVIOUS PARLIAMENTS -->
+    <section class="parliament-previous">
+        <div class="container">
+            <h2>Попередні парламенти</h2>
+            <section class="parliament-list">
+            </section>
+
+            <!-- Modal for previous parliaments -->
+            <div id="parliamentModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalParliamentImage">
+                <p id="modalParliamentText"></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>
+            <a href="https://rivalregions.com/#slide/profile/210626824071389">© Ukrainischer Bauer</a>
+        </p>
+    </div>
+</footer>
+
+<script src="../js/parliament.js"></script>
 </body>
 </html>

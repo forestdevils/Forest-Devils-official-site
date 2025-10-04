@@ -408,3 +408,71 @@ footer a {
 #nextBtn {
     right: 10px; /* справа */
 }
+
+
+
+/* parliament */
+
+.parliament-current {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.parliament-current h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.current-parliament-img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Попередні парламенти */
+.parliament-previous {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.parliament-previous h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.parliament-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.parliament-card {
+    width: 220px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.parliament-card:hover {
+    transform: scale(1.05);
+}
+
+.parliament-card img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.parliament-card p {
+    padding: 10px;
+    font-weight: 500;
+    color: white;
+}

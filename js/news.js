@@ -61,18 +61,6 @@ news.forEach(n => {
     container.appendChild(card);
 });
 
-// function openModal(id) {
-//     const n = news.find(x => x.id === id);
-//     document.getElementById('modalNewsImage').src = n.image;
-//     document.getElementById('newsModal').style.display = "block";
-//     document.body.style.overflow = 'hidden'; // блокуємо прокрутку фону
-// }
-//
-// function closeModal() {
-//     document.getElementById('newsModal').style.display = "none";
-//     document.body.style.overflow = 'auto';
-// }
-
 let currentImageIndex = 0;
 
 function openModal(id) {
