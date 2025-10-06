@@ -540,20 +540,20 @@ footer a {
 
 
 
-/* undone */
+/* unfinished */
 
-.undone-current {
+.unfinished-current {
     text-align: center;
     padding: 50px 20px;
 }
 
-.undone-current h1 {
+.unfinished-current h1 {
     font-size: 2rem;
     margin-bottom: 30px;
     color: white;
 }
 
-.undone-container img {
+.unfinished-container img {
     width: 450px;
     height: 450px;
     object-fit: cover;
