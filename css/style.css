@@ -537,3 +537,25 @@ footer a {
     color: white;
     border-radius: 0 0 15px 15px;
 }
+
+
+
+/* undone */
+
+.undone-current {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.undone-current h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.undone-container img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px 15px 15px 15px;
+}
