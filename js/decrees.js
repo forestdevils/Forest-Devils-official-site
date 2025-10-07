@@ -29,6 +29,31 @@ const decrees = [
         title: "Постанова №005-п",
         date: "25 серпня 2025 року",
     }
+    ,
+    {
+        id: "decree6",
+        image: "../images/decrees/decree6.jpg",
+        title: "Постанова №006-п",
+        date: "19 вересня 2025 року",
+    },
+    {
+        id: "decree7",
+        image: "../images/decrees/decree7.jpg",
+        title: "Постанова №007-п",
+        date: "30 вересня 2025 року",
+    },
+    {
+        id: "decree8",
+        image: "../images/decrees/decree8.jpg",
+        title: "Постанова №008-п",
+        date: "4 жовтня 2025 року",
+    },
+    {
+        id: "decree9",
+        image: "../images/decrees/decree9.jpg",
+        title: "Постанова №009-п",
+        date: "6 жовтня 2025 року",
+    }
 ];
 
 const container = document.querySelector(".decrees-list");

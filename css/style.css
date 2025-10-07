@@ -540,6 +540,135 @@ footer a {
 
 
 
+/* structure */
+
+.current-structure {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.current-structure h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.current-structure-img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.structure-details {
+    padding: 60px 20px;
+    color: white;
+}
+
+.structure-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.structure-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.structure-item img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.structure-info {
+    max-width: 600px;
+    text-align: left;
+}
+
+.structure-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.structure-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+
+/* ranks */
+.ranks-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #0e0e0e;
+}
+
+.ranks-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.ranks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.rank-card {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.rank-card:hover {
+    transform: translateY(-5px);
+    background-color: #2a2a2a;
+}
+
+.rank-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.rank-card h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.rank-description {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.rank-benefits {
+    color: #999;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+
+
 /* unfinished */
 
 .unfinished-current {
