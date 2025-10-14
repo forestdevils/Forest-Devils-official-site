@@ -43,6 +43,17 @@ const news = [
         ],
         title: "Випуск 6",
         date: "22 серпня 2025 року",
+    },
+    {
+        id: "news7",
+        images: [
+            "../images/news/issue7_1.png",
+            "../images/news/issue7_2.png",
+            "../images/news/issue7_3.png",
+            "../images/news/issue7_4.png",
+        ],
+        title: "Випуск 7",
+        date: "8 жовтня 2025 року",
     }
 ];
 
