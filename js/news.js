@@ -54,6 +54,23 @@ const news = [
         ],
         title: "Випуск 7",
         date: "8 жовтня 2025 року",
+    },
+    {
+        id: "news8",
+        images: ["../images/news/issue8.png"],
+        title: "Випуск 8",
+        date: "25 жовтня 2025 року",
+    },
+    {
+        id: "news9",
+        images: [
+            "../images/news/issue9_1.png",
+            "../images/news/issue9_2.png",
+            "../images/news/issue9_3.png",
+            "../images/news/issue9_4.png",
+        ],
+        title: "Випуск 9",
+        date: "6 грудня 2025 року",
     }
 ];
 
