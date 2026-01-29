@@ -19,7 +19,12 @@
                 <span>Лісові Чорти</span>
             </a>
         </div>
-        <nav>
+
+        <button class="burger" id="burger">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav id="nav">
             <ul>
                 <li><a href="index.html" class="active">Головна</a></li>
                 <li><a href="pages/structure.html">Структура</a></li>
@@ -44,7 +49,7 @@
                 <div class="card">
                     <i class="fas fa-eye"></i>
                     <h3>Наше бачення</h3>
-                    <p>Ми бачимо Україну державою, яка належить саме українцям. Ми прагнемо країни, у якій українці є господарями на своїй землі, а не спостерігачами чужих рішень ззакордону.</p>
+                    <p>Ми бачимо Україну державою, яка належить саме українцям. Ми прагнемо країни, у якій українці є господарями на своїй землі, а не спостерігачами чужих рішень з-за кордону.</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-bullseye"></i>
@@ -97,5 +102,23 @@
         </p>
     </div>
 </footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('nav');
+        const icon = burger.querySelector('i');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    });
+</script>
+
+
 </body>
 </html>
