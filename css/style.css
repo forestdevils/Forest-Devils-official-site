@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Raleway:wght@400;500&display=swap');
+
+:root {
+    --accent: #e63946;
+    --bg-main: #4a0d0d;
+    --bg-dark: #1a1a1a;
+    --bg-card: #111111;
+    --text-primary: #ffffff;
+    --text-muted: #aaaaaa;
+    --text-hint: #666666;
+    --border: #2a2a2a;
+    --transition: 0.25s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 html, body {
@@ -10,130 +23,202 @@ html, body {
 }
 
 body {
-    background-color: #4a0d0d;
-    color: white;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
 }
-/* background: linear-gradient(135deg, #4a0d0d, #1a1a1a); */
 
 main {
-    flex: 1; /* займе весь простір між header та footer */
+    flex: 1;
 }
 
 
 
-/* HEADER */
+/* ─── HEADER ─────────────────────────────────────────────── */
+
 header {
-    background-color: #1a1a1a;
-    padding: 5px 0;
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--accent);
+    padding: 0;
     position: relative;
     z-index: 1000;
 }
 
-header .logo a {
-    text-decoration: none; /* прибрати підкреслення */
-    color: inherit; /* щоб колір тексту не змінювався */
-    display: flex;
-    align-items: center;
-    gap: 10px; /* відстань між логотипом і текстом */
-}
-
 .header-container {
-    display: flex;           /* робимо горизонтальний ряд */
-    justify-content: space-between; /* логотип зліва, меню справа */
-    align-items: center;     /* вертикальне вирівнювання по центру */
-    padding: 10px 20px;      /* внутрішні відступи */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
     width: 90%;
     margin: 0 auto;
 }
 
+header .logo a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: opacity var(--transition);
+}
+
+header .logo a:hover {
+    opacity: 0.85;
+}
+
 header .logo img {
-    height: 50px;
+    height: 46px;
+}
+
+header .logo span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 28px;
 }
 
 header nav ul li a {
-    color: white;
+    color: var(--text-muted);
     text-decoration: none;
-    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color var(--transition);
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width var(--transition);
+}
+
+header nav ul li a:hover {
+    color: var(--text-primary);
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
 }
 
 header nav ul li a.active {
-    text-decoration: underline;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+header nav ul li a.active::after {
+    width: 100%;
 }
 
 
 
-/* HERO SECTION */
+/* ─── HERO SECTION ───────────────────────────────────────── */
+
 .hero {
-    padding: 50px 0;
-    background-color: #4a0d0d; /* #5a0d0d; */
+    padding: 60px 0;
+    background-color: var(--bg-main);
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 колонки: текст + картки */
+    grid-template-columns: 1fr 1fr;
     align-items: stretch;
-    gap: 40px;
+    gap: 50px;
     width: 90%;
     margin: 0 auto;
 }
 
 .hero-text {
     display: flex;
-    flex-direction: column; /* тепер елементи йдуть зверху вниз */
-    justify-content: center; /* центрує весь блок по вертикалі */
-    align-items: flex-start; /* вирівнює по лівому краю */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .hero-text h1 {
-    font-size: 2.5rem;
-    line-height: 1.4;
-    margin-bottom: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
 }
 
 .hero-text p {
-    font-size: 1.2rem;  /* трішки менший підзаголовок */
-    color: #ddd;        /* світліший відтінок, щоб не зливалося */
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
 }
 
 .hero-cards {
-    /*display: grid;*/
-    /*grid-template-columns: 1fr 1fr; !* дві картки в ряд *!*/
-    /*gap: 20px;*/
-
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .card {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    align-items: center;
+    background-color: var(--bg-card);
+    padding: 22px 18px;
+    border-radius: 10px;
+    text-align: left;
+    border-left: 3px solid var(--accent);
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+.card:hover {
+    transform: translateX(5px);
+    background-color: #1c1c1c;
 }
 
 .card i {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #ffffff;;
+}
+
+.card:hover i, .link-card:hover i {
+    color: var(--accent);
+}
+
+.card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
 .card.empty {
     background: transparent;
+    border: none;
 }
 
 
 
-/* QUICK LINKS */
+/* ─── QUICK LINKS ────────────────────────────────────────── */
+
 .quick-links {
     padding: 50px 0;
 }
@@ -146,129 +231,127 @@ header nav ul li a.active {
 }
 
 .link-card {
-    background-color: #1a1a1a;
-    padding: 20px;
+    background-color: var(--bg-card);
+    padding: 22px 16px;
     flex: 1;
     margin: 5px;
     text-align: center;
-    border-radius: 5px;
-    text-decoration: none;  /* прибрати підкреслення */
-    color: inherit;         /* залишити білий текст */
-    display: block;         /* щоб поводилося як div */
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-muted);
+    display: block;
+    transition: border-color var(--transition), background-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 .link-card i {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 10px;
+    display: block;
+    color: #ffffff;
+    transition: transform var(--transition);
 }
 
 .link-card:hover {
-    background-color: #333; /* ефект при наведенні */
+    background-color: #1a0a0a;
+    border-color: var(--accent);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+.link-card:hover i {
+    transform: scale(1.15);
+}
+
+.link-card p {
+    font-size: 0.88rem;
+    line-height: 1.4;
 }
 
 
 
-/* Секція з кнопкою перед футером */
+/* ─── PARTY LINK BUTTON ──────────────────────────────────── */
+
 .party-link-section {
-    text-align: center; /* кнопка по центру */
-    padding: 20px 0;
-    background-color: #4a0d0d; /* той самий фон, що і футер */
+    text-align: center;
+    padding: 30px 0;
+    background-color: var(--bg-main);
 }
 
 .party-button {
-    background-color: #1a1a1a;
+    background-color: var(--accent);
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background-color var(--transition), transform var(--transition);
+    display: inline-block;
 }
 
 .party-button:hover {
-    background-color: #6a1a1a;
+    background-color: #c0303c;
+    transform: translateY(-2px);
 }
 
 
 
+/* ─── FOOTER ─────────────────────────────────────────────── */
 
-/* FOOTER */
 footer {
-    background-color: #1a1a1a;
-    text-align: left; /* текст ліворуч */
+    background-color: var(--bg-dark);
+    text-align: left;
     padding: 20px;
+    border-top: 1px solid var(--border);
 }
 
 footer a {
-    color: white;
+    color: var(--text-muted);
     text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition);
 }
 
-/* --- Адаптивність --- */
-@media (max-width: 768px) {
-    /* Хедер */
-    .header-container {
-        flex-direction: column; /* логотип зверху, меню знизу */
-        align-items: center;
-    }
-
-    header nav ul {
-        flex-direction: column; /* робимо вертикальне меню */
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    /* Hero */
-    .hero-content {
-        grid-template-columns: 1fr; /* все в одну колонку */
-        text-align: center;
-    }
-
-    .hero-cards {
-        /*grid-template-columns: 1fr; !* картки одна під одною *!*/
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-text {
-        align-items: center; /* на телефоні все по центру */
-        text-align: center;
-    }
-
-    .card {
-        width: 90%;
-        /*margin: 0 auto;*/
-        margin-bottom: 15px;
-    }
-
-    /* Quick links */
-    .quick-links .container {
-        flex-direction: column; /* картки одна під одною */
-        align-items: center;
-    }
-
-    .link-card {
-        width: 90%;
-        margin-bottom: 15px;
-    }
-
-    /* Кнопка */
-    .party-link-section {
-        padding: 15px 0;
-    }
+footer a:hover {
+    color: var(--text-primary);
 }
 
 
 
-/* decrees */
+/* ─── BURGER ─────────────────────────────────────────────── */
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1100;
+    transition: color var(--transition);
+}
+
+.burger:hover {
+    color: var(--accent);
+}
+
+
+
+/* ─── DECREES ────────────────────────────────────────────── */
+
 .decrees-section {
     padding: 50px 0;
 }
 
 .decrees-section h1 {
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     margin-bottom: 30px;
     font-size: 2rem;
+    letter-spacing: 0.5px;
 }
 
 .decrees-list {
@@ -279,13 +362,14 @@ footer a {
 }
 
 .decree-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-card);
     border-radius: 8px;
+    border: 1px solid var(--border);
     padding: 15px;
     width: 250px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
 }
 
 .decree-card img {
@@ -296,13 +380,14 @@ footer a {
 }
 
 .decree-card:hover {
-    background-color: #333;
+    background-color: #1a0a0a;
+    border-color: var(--accent);
     transform: translateY(-5px);
 }
 
 .decree-card p {
-    font-size: 0.9rem;
-    color: #ddd;
+    font-size: 0.88rem;
+    color: var(--text-muted);
 }
 
 .modal {
@@ -314,7 +399,7 @@ footer a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     overflow: auto;
 }
 
@@ -331,21 +416,27 @@ footer a {
     color: white;
     font-size: 40px;
     cursor: pointer;
+    transition: color var(--transition);
+}
+
+.close:hover {
+    color: var(--accent);
 }
 
 
-/* --- Адаптивність --- */
-@media (max-width: 768px) {
-    .decree-card {
-        width: 90%;
-    }
-}
 
-
-/* news */
+/* ─── NEWS ───────────────────────────────────────────────── */
 
 .news-section {
     padding: 50px 0;
+}
+
+.news-section h1 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
 }
 
 .news-list {
@@ -355,24 +446,21 @@ footer a {
     justify-content: center;
 }
 
-.news-section h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-}
-
 .news-card {
-    background-color: #1a1a1a;
+    background-color: var(--bg-card);
     border-radius: 8px;
+    border: 1px solid var(--border);
     padding: 15px;
     width: 250px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
 }
 
 .news-card:hover {
-    background-color: #333;
+    background-color: #1a0a0a;
+    border-color: var(--accent);
+    transform: translateY(-4px);
 }
 
 .news-card img {
@@ -381,39 +469,31 @@ footer a {
     margin-bottom: 10px;
 }
 
-/* Модальні кнопки навігації */
 #prevBtn, #nextBtn {
     position: absolute;
-    top: 50%; /* по вертикалі по центру */
+    top: 50%;
     transform: translateY(-50%);
-    /*background-color: rgba(0,0,0,0.5); !* напівпрозорий чорний фон *!*/
-    background-color: #4a0d0d;
+    background-color: var(--accent);
     color: white;
     border: none;
-    padding: 15px 25px; /* збільшуємо розмір кнопки */
-    font-size: 2rem; /* великий знак < або > */
+    padding: 15px 25px;
+    font-size: 2rem;
     cursor: pointer;
     border-radius: 5px;
     z-index: 10;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition);
 }
 
 #prevBtn:hover, #nextBtn:hover {
-    /*background-color: rgba(0,0,0,0.8);*/
-    background-color: #972f2f;
+    background-color: #c0303c;
 }
 
-#prevBtn {
-    left: 10px; /* зліва */
-}
-
-#nextBtn {
-    right: 10px; /* справа */
-}
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
 
 
 
-/* parliament */
+/* ─── PARLIAMENT ─────────────────────────────────────────── */
 
 .parliament-current {
     text-align: center;
@@ -421,30 +501,30 @@ footer a {
 }
 
 .parliament-current h1 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 30px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .current-parliament-img {
     max-width: 90%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
     display: block;
     margin: 0 auto;
 }
 
-/* Попередні парламенти */
 .parliament-previous {
     text-align: center;
     padding: 50px 20px;
 }
 
 .parliament-previous h2 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 30px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .parliament-list {
@@ -456,49 +536,53 @@ footer a {
 
 .parliament-card {
     width: 220px;
-    background: #1a1a1a;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform var(--transition), border-color var(--transition);
 }
 
 .parliament-card:hover {
     transform: scale(1.05);
+    border-color: var(--accent);
 }
 
 .parliament-card img {
     width: 100%;
-    border-radius: 15px 15px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
 .parliament-card p {
     padding: 10px;
     font-weight: 500;
-    color: white;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
 
 
-/* battalions */
+/* ─── BATTALIONS ─────────────────────────────────────────── */
+
 .battalions-section {
     text-align: center;
     padding: 50px 20px;
 }
 
 .battalions-section h1 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 20px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .battalions-text {
-    color: white;
+    color: var(--text-muted);
     max-width: 800px;
     margin: 0 auto 40px auto;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .battalions-list {
@@ -510,39 +594,40 @@ footer a {
 
 .battalion-card {
     width: 250px;
-    /*aspect-ratio: 1 / 1;*/
-    background: #1a1a1a;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform var(--transition), border-color var(--transition);
     overflow: hidden;
     text-align: center;
 }
 
 .battalion-card:hover {
     transform: scale(1.05);
+    border-color: var(--accent);
 }
 
 .battalion-card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
 .battalion-card p {
-    background-color: #1a1a1a;
+    background-color: var(--bg-card);
     margin: 0;
     padding: 10px;
     font-weight: 500;
-    color: white;
-    border-radius: 0 0 15px 15px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-radius: 0 0 12px 12px;
 }
 
 
 
-/* structure */
+/* ─── STRUCTURE ──────────────────────────────────────────── */
 
 .current-structure {
     text-align: center;
@@ -550,23 +635,22 @@ footer a {
 }
 
 .current-structure h1 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 30px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .current-structure-img {
     max-width: 90%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
     display: block;
     margin: 0 auto;
 }
 
 .structure-details {
     padding: 60px 20px;
-    color: white;
 }
 
 .structure-item {
@@ -586,8 +670,8 @@ footer a {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1px solid var(--border);
 }
 
 .structure-info {
@@ -596,19 +680,22 @@ footer a {
 }
 
 .structure-info h2 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: white;
+    letter-spacing: 0.3px;
 }
 
 .structure-info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
 }
 
 
 
-/* ranks */
+/* ─── RANKS ──────────────────────────────────────────────── */
+
 .ranks-section {
     text-align: center;
     padding: 60px 20px;
@@ -616,9 +703,10 @@ footer a {
 }
 
 .ranks-section h2 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 40px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .ranks-list {
@@ -629,49 +717,50 @@ footer a {
 }
 
 .rank-card {
-    background-color: #1a1a1a;
-    border-radius: 15px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     width: 80%;
     height: auto;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform var(--transition), border-color var(--transition);
 }
 
 .rank-card:hover {
     transform: translateY(-5px);
-    background-color: #2a2a2a;
+    border-color: var(--accent);
 }
 
 .rank-card img {
     width: 100%;
     height: 450px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
 .rank-card h3 {
-    color: white;
+    font-family: 'Oswald', sans-serif;
     margin-bottom: 10px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .rank-description {
-    color: #ccc;
-    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
     margin-bottom: 10px;
+    line-height: 1.6;
 }
 
 .rank-benefits {
-    color: #999;
+    color: var(--text-hint);
     font-size: 0.85rem;
     font-style: italic;
 }
 
 
 
-/* unfinished */
+/* ─── UNFINISHED ─────────────────────────────────────────── */
 
 .unfinished-current {
     text-align: center;
@@ -679,31 +768,23 @@ footer a {
 }
 
 .unfinished-current h1 {
+    font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin-bottom: 30px;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .unfinished-container img {
     width: 450px;
     height: 450px;
     object-fit: cover;
-    border-radius: 15px 15px 15px 15px;
-}
-
-/* Burger button */
-.burger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 26px;
-    cursor: pointer;
-    color: #fff;
-    z-index: 1100;
+    border-radius: 12px;
 }
 
 
-/* Mobile menu */
+
+/* ─── АДАПТИВНІСТЬ ───────────────────────────────────────── */
+
 @media (max-width: 768px) {
     .burger {
         display: block;
@@ -730,6 +811,62 @@ footer a {
 
     nav ul li {
         text-align: center;
-        margin: 10px 0;
+        margin: 8px 0;
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .card {
+        width: 90%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .quick-links .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .link-card {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    .party-link-section {
+        padding: 20px 0;
+    }
+
+    .decree-card,
+    .news-card {
+        width: 90%;
+    }
+
+    .structure-item,
+    .structure-item.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .structure-info {
+        text-align: center;
     }
 }
