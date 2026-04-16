@@ -22,20 +22,32 @@ const getProjectPath = () => {
 };
 
 const projectRoot = getProjectPath();
+const isSubPage = window.location.pathname.includes('/pages/');
+const navPath = isSubPage ? 'nav.html' : 'pages/nav.html';
 
-fetch(projectRoot + 'pages/nav.html')
-    .then(res => res.text())
+fetch(navPath)
+    .then(res => {
+        if (!res.ok) throw new Error('Неможливо завантажити ' + navPath);
+        return res.text();
+    })
     .then(data => {
         const nav = document.getElementById('nav');
         if (nav) {
             nav.innerHTML = data;
 
-            // Виправляємо посилання в меню, щоб вони теж враховували корінь
+            // Налаштовуємо посилання після вставки
             const links = nav.querySelectorAll('a');
             links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('/')) {
-                    link.setAttribute('href', projectRoot + href.substring(1));
+                let href = link.getAttribute('href');
+
+                // Якщо ми на внутрішній сторінці, а посилання веде в pages/
+                // прибираємо префікс pages/, бо ми вже там
+                if (isSubPage && href.startsWith('pages/')) {
+                    link.setAttribute('href', href.replace('pages/', ''));
+                }
+                // Якщо ми на внутрішній сторінці і йдемо на головну
+                else if (isSubPage && href === 'index.html') {
+                    link.setAttribute('href', '../index.html');
                 }
 
                 // Підсвітка активного пункту
@@ -44,6 +56,8 @@ fetch(projectRoot + 'pages/nav.html')
                 }
             });
 
-            initBurger();
+            // Ініціалізація бургера (якщо функція є в main.js)
+            if (typeof initBurger === 'function') initBurger();
         }
-    });
+    })
+    .catch(err => console.error('Помилка навігації:', err));
