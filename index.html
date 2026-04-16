@@ -25,14 +25,7 @@
         </button>
 
         <nav id="nav">
-            <ul>
-                <li><a href="index.html" class="active">Головна</a></li>
-                <li><a href="pages/structure.html">Структура</a></li>
-                <li><a href="pages/battalions.html">Батальйони</a></li>
-                <li><a href="pages/history.html">Історія</a></li>
-                <li><a href="pages/news.html">Новини</a></li>
-                <li><a href="pages/decrees.html">Постанови</a></li>
-            </ul>
+
         </nav>
     </div>
 </header>
@@ -137,21 +130,7 @@
 </footer>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-        const icon = burger.querySelector('i');
-
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    });
-</script>
-
+<script src="/main.js"></script>
 
 </body>
 </html>
