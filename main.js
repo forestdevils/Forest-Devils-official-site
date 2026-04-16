@@ -1,63 +1,66 @@
+const initNavigation = () => {
+    // Визначаємо базу: для GitHub це '/Forest-Devils-official-site/', для локалки може бути інше
+    const pathArray = window.location.pathname.split('/');
+    // Якщо ми на GitHub Pages, назва репозиторію зазвичай є першим елементом шляху
+    const repoName = pathArray[1] === 'Forest-Devils-official-site' ? '/Forest-Devils-official-site/' : '/';
+
+    const isInsidePages = window.location.pathname.includes('/pages/');
+
+    // Формуємо шлях: якщо ми вже в pages, беремо nav.html поруч, якщо ні - йдемо в папку pages
+    const navPath = isInsidePages ? 'nav.html' : 'pages/nav.html';
+
+    fetch(navPath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Status: ${response.status}`);
+            return response.text();
+        })
+        .then(html => {
+            const navElement = document.getElementById('nav');
+            if (navElement) {
+                navElement.innerHTML = html;
+                setupLinks(navElement, isInsidePages, repoName);
+                initBurger();
+            }
+        })
+        .catch(error => console.error('Navigation error:', error));
+};
+
+function setupLinks(navElement, isInsidePages, repoName) {
+    const links = navElement.querySelectorAll('a');
+    links.forEach(link => {
+        let href = link.getAttribute('href');
+
+        // Видаляємо початковий слеш, якщо він є в nav.html, щоб працювати відносно
+        if (href.startsWith('/')) href = href.substring(1);
+
+        if (isInsidePages) {
+            // Корекція для вкладених сторінок
+            if (href.startsWith('pages/')) {
+                link.setAttribute('href', href.replace('pages/', ''));
+            } else if (href === 'index.html') {
+                link.setAttribute('href', '../index.html');
+            }
+        }
+
+        if (window.location.href.includes(link.href)) {
+            link.classList.add('active');
+        }
+    });
+}
+
 function initBurger() {
     const burger = document.getElementById('burger');
     const nav = document.getElementById('nav');
-    if (!burger || !nav) return;
-
-    const icon = burger.querySelector('i');
-    // Використовуємо onclick, щоб уникнути дублювання подій
-    burger.onclick = () => {
-        nav.classList.toggle('active');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    };
+    if (burger && nav) {
+        burger.onclick = () => {
+            nav.classList.toggle('active');
+            const icon = burger.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        };
+    }
 }
 
-// Функція, що визначає шлях до кореня проєкту
-const getProjectPath = () => {
-    const path = window.location.pathname;
-    if (path.includes('/ForestDevils/')) {
-        return '/ForestDevils/';
-    }
-    return '/';
-};
-
-const projectRoot = getProjectPath();
-const isSubPage = window.location.pathname.includes('/pages/');
-const navPath = isSubPage ? 'nav.html' : 'pages/nav.html';
-
-fetch(navPath)
-    .then(res => {
-        if (!res.ok) throw new Error('Неможливо завантажити ' + navPath);
-        return res.text();
-    })
-    .then(data => {
-        const nav = document.getElementById('nav');
-        if (nav) {
-            nav.innerHTML = data;
-
-            // Налаштовуємо посилання після вставки
-            const links = nav.querySelectorAll('a');
-            links.forEach(link => {
-                let href = link.getAttribute('href');
-
-                // Якщо ми на внутрішній сторінці, а посилання веде в pages/
-                // прибираємо префікс pages/, бо ми вже там
-                if (isSubPage && href.startsWith('pages/')) {
-                    link.setAttribute('href', href.replace('pages/', ''));
-                }
-                // Якщо ми на внутрішній сторінці і йдемо на головну
-                else if (isSubPage && href === 'index.html') {
-                    link.setAttribute('href', '../index.html');
-                }
-
-                // Підсвітка активного пункту
-                if (window.location.href.includes(link.href)) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Ініціалізація бургера (якщо функція є в main.js)
-            if (typeof initBurger === 'function') initBurger();
-        }
-    })
-    .catch(err => console.error('Помилка навігації:', err));
+initNavigation();
