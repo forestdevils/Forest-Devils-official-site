@@ -71,7 +71,13 @@ const news = [
         ],
         title: "Випуск 9",
         date: "6 грудня 2025 року",
-    }
+    },
+    {
+        id: "news10",
+        images: ["../images/news/issue10.png"],
+        title: "Випуск 10",
+        date: "4 лютого 2026 року",
+    },
 ];
 
 const container = document.querySelector(".news-list");
