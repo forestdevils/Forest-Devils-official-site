@@ -4,6 +4,12 @@ const previousParliaments = [
         image: "../images/parliament/parliament_1.jpg",
         title: "Парламент 1 скликання",
         date: "25.08.2025 - 31.09.2025"
+    },
+    {
+        id: "parl09/25",
+        image: "../images/parliament/parliament_2.jpg",
+        title: "Парламент 2 скликання",
+        date: "01.10.2025 - 2026"
     }
 ];
 
