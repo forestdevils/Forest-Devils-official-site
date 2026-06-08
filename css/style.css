@@ -987,6 +987,216 @@ footer a:hover {
 }
 
 
+/* ─── DECISIONS ──────────────────────────────────────────── */
+
+.decisions-section {
+    padding: 50px 0;
+}
+
+.decisions-section h1 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.decisions-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    background-color: #1a0a0a;
+}
+
+.decisions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.decision-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 20px 24px;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.decision-card:hover {
+    background-color: #1a0a0a;
+    transform: translateX(5px);
+}
+
+.decision-card.status-accepted  { border-left-color: #4caf50; }
+.decision-card.status-rejected  { border-left-color: #e63946; }
+.decision-card.status-review    { border-left-color: #f4c430; }
+.decision-card.status-cancelled { border-left-color: #9c6dbb; }
+
+.decision-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.decision-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-hint);
+    letter-spacing: 0.5px;
+}
+
+.decision-status {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.decision-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.decision-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.decisions-empty {
+    text-align: center;
+    color: var(--text-hint);
+    font-size: 0.95rem;
+    padding: 40px 0;
+}
+
+/* VOTE BAR */
+
+.decision-vote {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.vote-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-dark);
+    margin-bottom: 10px;
+}
+
+.vote-segment {
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.vote-for     { background-color: #4caf50; }
+.vote-abstain { background-color: #f4c430; }
+.vote-against { background-color: #e63946; }
+
+.vote-labels {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.vote-label {
+    font-size: 0.8rem;
+}
+
+.vote-label.for     { color: #4caf50; }
+.vote-label.abstain { color: #f4c430; }
+.vote-label.against { color: #e63946; }
+
+@media (max-width: 768px) {
+    .decisions-list {
+        width: 95%;
+    }
+    .decision-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* VOTE BAR (оновлення) */
+
+.vote-notvoted { background-color: #444444; }
+
+.vote-label.notvoted { color: #666666; }
+
+/*  COLLAPSE  */
+
+.decision-desc-wrapper {
+    position: relative;
+}
+
+.decision-desc-wrapper.collapsed {
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.desc-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(transparent, var(--bg-card));
+    pointer-events: none;
+}
+
+.decision-card:hover .desc-fade {
+    background: linear-gradient(transparent, #1a0a0a);
+}
+
+.desc-toggle {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    cursor: pointer;
+    padding: 10px 0 10px;
+    display: block;
+    transition: color var(--transition);
+}
+
+.desc-toggle:hover {
+    color: #ff6b75;
+}
+
+
+
 
 /* ─── АДАПТИВНІСТЬ ───────────────────────────────────────── */
 

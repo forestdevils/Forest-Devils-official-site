@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рішення</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Лісові Чорти">
+                <span>Лісові Чорти</span>
+            </a>
+        </div>
+        <button class="burger" id="burger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav"></nav>
+    </div>
+</header>
+
+<main>
+    <section class="decisions-section">
+        <div class="container">
+            <h1>Рішення партії</h1>
+            <div class="decisions-filters">
+                <button class="filter-btn active" data-filter="all">Усі</button>
+                <button class="filter-btn" data-filter="accepted">🟩 Прийнято</button>
+                <button class="filter-btn" data-filter="rejected">🟥 Не прийнято</button>
+                <button class="filter-btn" data-filter="review">🟨 На розгляді</button>
+                <button class="filter-btn" data-filter="cancelled">🟪 Скасовано</button>
+            </div>
+            <div class="decisions-list"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            <a href="https://rivalregions.com/#slide/profile/210626824071389">© Ukrainischer Bauer</a>
+        </p>
+    </div>
+</footer>
+
+<script src="../main.js"></script>
+<script src="../js/decisions.js"></script>
+
+</body>
+</html>
